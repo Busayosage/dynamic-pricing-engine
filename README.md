@@ -44,9 +44,9 @@ Based on demand & wastage:
 ## 📊 Example Output
 
 | Product_ID | Avg Demand | Forecast | Action |
-|----------|-----------|----------|--------|
-| 1001     | 1968      | 1968     | Reduce Supply |
-| 1005     | 1875      | 1875     | Reduce Supply |
+|-----------|-----------|----------|--------|
+| 1001      | 1968      | 1968     | Reduce Supply |
+| 1005      | 1875      | 1875     | Reduce Supply |
 
 ---
 
@@ -64,14 +64,11 @@ This demonstrates how data analysis can uncover hidden operational issues beyond
 
 This section shows the full pipeline of the pricing engine — from raw data to final business decisions:
 
-### 🗄️ Database View (Raw Data - SQL)
-![Database View](database_view.png)
-
 ### 📈 Demand Forecast Output (Python)
-![Forecast Output](forecast_output.png)
+![Forecast Output](forecast.png)
 
 ### ⚙️ Pricing Engine Decisions (Python Logic)
-![Pricing Engine Output](pricing_engine_output.png)
+![Pricing Engine Output](pricing_engine.png)
 
 ### 📊 Airtable Dashboard (Final Business Output)
 ![Airtable Dashboard](airtable_dashboard.png)
@@ -98,9 +95,8 @@ dynamic-pricing-engine/
 ├── outputs/
 ├── scripts/
 ├── airtable_dashboard.png
-├── forecast_output.png
-├── pricing_engine_output.png
-├── database_view.png
+├── forecast.png
+├── pricing_engine.png
 ├── README.md
 ```
 
@@ -127,4 +123,4 @@ python scripts/run_pricing_to_airtable.py
 
 ## 👤 Author
 
-Seun Oseola
+**Seun Oseola**
