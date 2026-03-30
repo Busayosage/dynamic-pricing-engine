@@ -54,7 +54,9 @@ Based on demand & wastage:
 
 This Airtable dashboard shows the final output including pricing decisions and forecasted demand:
 
-![Dashboard](screenshots/airtable_dashboard.png)
+![Dashboard](airtable_dashboard.png)
+![Forecast](forecast.png)
+![Pricing Engine](pricing_engine.png)
 
 ---
 
@@ -74,23 +76,10 @@ This Airtable dashboard shows the final output including pricing decisions and f
 dynamic-pricing-engine/
 │
 ├── data/
-│   └── merged_dataset.csv
-│
 ├── database/
-│   └── pricing_system.db
-│
-├── scripts/
-│   ├── run_pricing_engine.py
-│   ├── run_forecast.py
-│   └── run_pricing_to_airtable.py
-│
 ├── outputs/
-│   ├── pricing_recommendations.csv
-│   └── forecast_output.csv
-│
+├── scripts/
 ├── screenshots/
-│   └── airtable_dashboard.png
-│
 ├── README.md
 ```
 
@@ -98,21 +87,9 @@ dynamic-pricing-engine/
 
 ## ▶️ How to Run
 
-Run pricing engine:
-
 ```bash
 python scripts/run_pricing_engine.py
-```
-
-Run demand forecast:
-
-```bash
 python scripts/run_forecast.py
-```
-
-Send results to Airtable dashboard:
-
-```bash
 python scripts/run_pricing_to_airtable.py
 ```
 
@@ -120,13 +97,13 @@ python scripts/run_pricing_to_airtable.py
 
 ## 🛠 Tech Stack
 
-- Python (data processing)  
-- Pandas (analysis)  
-- SQLite (data storage)  
-- Airtable API (dashboard integration)  
+- Python  
+- Pandas  
+- SQLite  
+- Airtable API  
 
 ---
 
 ## 👤 Author
 
-**Seun Oseola**
+Seun Oseola
