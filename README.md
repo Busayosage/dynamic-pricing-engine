@@ -1,136 +1,60 @@
-# 📊 Dynamic Pricing & Demand Forecasting Engine (Python | Pandas | SQLite)
+# Dynamic Pricing Engine
 
-## 🚀 Overview
+## Business Problem
+Retail businesses often lose margin and create avoidable waste because pricing and supply decisions are too static. When demand changes but pricing or replenishment does not, the result can be overstocking, underpricing, or poor stock allocation.
 
-This project simulates a real-world retail pricing system that uses historical sales data to:
+## Objective
+The objective of this project is to build a simple decision-support engine that uses historical sales and wastage patterns to recommend practical pricing or supply actions for each product.
 
-- Forecast product demand  
-- Detect inefficiencies (e.g. high wastage)  
-- Recommend pricing or supply adjustments  
+## Data Used
+The project uses transaction and product-level retail data stored in SQLite, including:
 
-The goal is to demonstrate how data analysis can directly support **business decision-making in retail operations**.
+- product identifiers
+- demand history
+- average sales levels
+- wastage signals
+- pricing-related fields
 
----
+The output is then pushed into Airtable to make the recommendations easier to review operationally.
 
-## 💡 Business Problem
+## Approach
+1. **Data preparation**
+   - Loaded retail sales data into SQLite
+   - Aggregated sales and wastage at product level
 
-Retail businesses often struggle with:
+2. **Demand estimation**
+   - Used simple historical demand logic to create a forecast signal
 
-- Overstocking → leads to waste  
-- Underpricing → reduces profit margins  
-- Poor demand planning → lost revenue  
+3. **Decision rules**
+   - Combined demand level and wastage behaviour
+   - Assigned actions such as:
+     - increase price
+     - discount price
+     - reduce supply
+     - keep stable
 
-This project solves that by using historical transaction data to generate **data-driven pricing recommendations**.
+4. **Business-facing output**
+   - Generated a recommendation table
+   - Sent outputs to Airtable for easy visibility and use by non-technical stakeholders
 
----
+## Tools
+- Python
+- Pandas
+- SQLite
+- Airtable API
 
-## ⚙️ What This Project Does
+## Key Results
+- The engine translated raw demand and wastage data into product-level recommendations.  
+  **Business decision:** Teams can move from reviewing raw numbers to acting on a shortlist of recommended pricing or supply changes.
 
-### 1️⃣ Demand Forecasting
-- Uses historical averages to estimate next-period demand  
-- Helps anticipate product performance  
+- Products with strong demand but high wastage were identified as supply-planning problems rather than simple pricing wins.  
+  **Business decision:** Reduce supply or improve stock planning before assuming that higher demand means higher prices.
 
-### 2️⃣ Pricing Recommendation Engine
+- Products with weaker demand and high waste risk were flagged for discount consideration.  
+  **Business decision:** Use markdowns selectively to reduce avoidable waste and recover value.
 
-Based on demand & wastage:
+- The final output was structured for operational use through Airtable.  
+  **Business decision:** The analysis becomes easier to review, share and act on across teams.
 
-- 📈 High demand + low waste → **Increase Price**  
-- 📉 High demand + high waste → **Reduce Supply**  
-- ⚠️ Low demand + high waste → **Discount Price**  
-- ✅ Otherwise → **Keep Stable**  
-
----
-
-## 📊 Example Output
-
-| Product_ID | Avg Demand | Forecast | Action |
-|-----------|-----------|----------|--------|
-| 1001      | 1968      | 1968     | Reduce Supply |
-| 1005      | 1875      | 1875     | Reduce Supply |
-
----
-
-## 📈 Key Insight
-
-The analysis revealed that several products showed consistently high demand but also high wastage.
-
-This indicates inefficiencies in supply planning rather than pricing alone, leading to actionable recommendations such as reducing supply instead of increasing price.
-
-This demonstrates how data analysis can uncover hidden operational issues beyond surface-level metrics.
-
----
-
-## 📊 Dashboard & System Outputs
-
-This section shows the full pipeline of the pricing engine — from raw data to final business decisions:
-
-### 🗄 Database View (Raw Data - SQL)
-![Database View](screenshots/database_view.png)
-
----
-
-### 📈 Demand Forecast Output (Python)
-![Forecast Output](screenshots/forecast_output.png)
-
----
-
-### ⚙️ Pricing Engine Decisions (Python Logic)
-![Pricing Engine Output](screenshots/pricing_engine_output.png)
-
----
-
-### 📊 Airtable Dashboard (Final Business Output)
-![Airtable Dashboard](screenshots/airtable_dashboard.png)
-
----
-
-## 🔄 Workflow
-
-1. Raw transaction data → stored in SQLite  
-2. Aggregation → calculate demand & wastage  
-3. Forecast → estimate future demand  
-4. Decision logic → generate pricing action  
-5. Output → pushed to Airtable dashboard  
-
----
-
-## 🧱 Project Structure
-
-```
-dynamic-pricing-engine/
-│
-├── data/
-├── database/
-├── outputs/
-├── scripts/
-├── airtable_dashboard.png
-├── database_view.png
-├── forecast_output.png
-├── pricing_engine_output.png
-├── README.md
-```
-
----
-
-## ▶️ How to Run
-
-```bash
-python scripts/run_pricing_engine.py
-python scripts/run_forecast.py
-python scripts/run_pricing_to_airtable.py
-```
-
----
-
-## 🛠 Tech Stack
-
-- Python  
-- Pandas  
-- SQLite  
-- Airtable API  
-
----
-
-## 👤 Author
-
-**Seun Oseola**
+## Business Impact
+This project demonstrates practical decision support. Instead of stopping at analysis, it converts demand patterns into actions that a business can actually use. The benefit is stronger pricing discipline, better supply decisions, and a more operationally useful analytics workflow.
